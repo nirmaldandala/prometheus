@@ -1,10 +1,10 @@
-prometheus.controller('searchController', function($scope, $rootScope, $ionicHistory, omdbget, $http) {
+prometheus.controller('searchController', function($scope, $rootScope, $ionicHistory, omdbget, $http, StorageService) {
   var curPage = 0;
   $scope.canShowMore = false;
   $scope.noResults = false;
   $scope.certified = false;
   $scope.rotten = false;
-  $scope.movieList = [];
+
   $scope.search = function() {
     var searchKey = $scope.searchKey;
     omdbget.getMovieInfo($scope.searchKey).then(function(response) {
@@ -41,16 +41,7 @@ prometheus.controller('searchController', function($scope, $rootScope, $ionicHis
   };
 
   $scope.shareMovie = function(movie) {
-    $rootScope.favoriteList.push(movie);
-    localStorage.setItem('movFavList', JSON.stringify($rootScope.favoriteList));
-  };
-
-  $scope.deleteMovie = function(movieid) {
-    angular.forEach($rootScope.favoriteList, function(value, key){
-      if(value.imdbID === movieid) {
-        $rootScope.favoriteList.splice(key, 1);
-      }
-    });
+    StorageService.add(movie);
   };
 
   $scope.taptest = function(movie) {
@@ -67,4 +58,5 @@ prometheus.controller('searchController', function($scope, $rootScope, $ionicHis
   $scope.myGoBack = function() {
      $ionicHistory.goBack();
   };
+
 });
