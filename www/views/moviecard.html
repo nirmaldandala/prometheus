@@ -1,0 +1,41 @@
+<ion-view ng-controller="searchController">
+  <ion-header-bar>
+    <ion-nav-bar>
+      <ion-nav-back-button>
+        <i class="icon ion-backspace-outline"></i>
+      </ion-nav-back-button>
+      <ion-nav-title>{{ movieCardInfo.Title }} ({{movieCardInfo.Year}})</ion-nav-title>
+    </ion-nav-bar>
+  </ion-header-bar>
+  <ion-content>
+
+    <div class="list card">
+      <div class="item item-image">
+        <img src="{{ movieCardInfo.Poster}}" width="213" height="400">
+      </div>
+
+      <div class="item">
+        <span style="float: left">
+          <img src="img/imdbmod.png" width="39" height="25">
+        </span>
+        <span style="float: right" ng-if="movieCardInfo.tomatoImage === 'certified'">
+          <img src="img/certified.png" width="25" height="25">
+        </span> 
+        <span style="float: right" ng-if="movieCardInfo.tomatoImage === 'rotten'">
+          <img src="img/rotten.png" width="25" height="25">
+        </span> 
+      </div>
+      <div class="item" style="margin: 5px 15px 5px 15px">
+        <span style="float: left; cursor: pointer;" ng-click="shareMovie();">
+          <i class="icon ion-heart-broken" style="font-size: 60px; color: #575656"></i>
+        </span>
+        <span style="float: right; cursor: pointer" ng-click="shareMovie(movieCardInfo);">
+          <i class="icon ion-heart" style="font-size: 60px; color: rgba(255, 52, 52, 0.98)"></i>
+        </span>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+
+
+<!--  -->

@@ -1,0 +1,18 @@
+<ion-view ng-controller="groupsController">
+	<ion-header-bar>
+		<span style="float: right"><i class="icon ion-plus-round" ng-click="addGroup();" style="font-size: 36px"></i></span>
+	</ion-header-bar>
+	<ion-content>
+		<ion-list>
+			<ion-item ng-repeat="item in contactList">
+				<ion-checkbox ng-model="item.selected">
+				{{ item.name.formatted }}
+				{{ item.phone}}
+				</ion-checkbox>
+			</ion-item>
+		</ion-list>
+		<button class="button" ng-click"createGroup();">
+		  Done
+		</button>
+	</ion-content>
+</ion-view>

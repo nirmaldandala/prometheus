@@ -1,0 +1,12 @@
+<ion-view ng-controller="searchController">
+	<ion-content>
+		<ion-list class="list">
+			<ion-item ng-repeat="movie in favoriteList">
+		  		<p>{{movie.Title}}</p>
+		  	<ion-option-button ng-click="deleteMovie(movie.imdbID);" class="button-royal">
+		    	<i class="icon ion-ios-close-outline"></i>
+		  </ion-option-button>
+		  </ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>
