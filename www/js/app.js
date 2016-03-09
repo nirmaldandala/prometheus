@@ -5,6 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 var prometheus = angular.module('prometheus', ['ionic', 'firebase', 'ui.router', 'ngCordova', 'ngStorage'])
 
+prometheus.constant('fburl', 'https://torrid-fire-916.firebaseio.com/');
+
 prometheus.config(function($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state('signup', {
